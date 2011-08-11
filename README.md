@@ -4,7 +4,7 @@ AMERIGO
 Amerigo is an ipad app for browsing/exploring music artists.
 You can search artists by name or explore other artists by similarity to orhers.
 
-For an artist the followind data will be provided:
+For an artist the following data will be provided:
 
  -  tags/genres
  -  similar artists
