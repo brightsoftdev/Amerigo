@@ -120,10 +120,6 @@
 //
 - (void)viewDidLoad
 {
-	
-	
-	
-	
 	[super viewDidLoad];
 	
 	MPVolumeView *volumeView = [[[MPVolumeView alloc] initWithFrame:volumeSlider.bounds] autorelease];

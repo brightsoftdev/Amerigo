@@ -12,9 +12,13 @@
 @interface SearchViewController : UIViewController {
     
     UITextField *artistTextField;
+	UIPopoverController* popoverController;
 }
-- (IBAction)onCancelPressed:(id)sender;
-- (IBAction)onDonePressed:(id)sender;
-@property (nonatomic, retain) IBOutlet UITextField *artistTextField;
 
+- (IBAction)onDonePressed:(id)sender;
+- (IBAction)onListArtistsButtonPressed:(id)sender;
+
+
+@property (nonatomic, retain) IBOutlet UITextField *artistTextField;
+@property (nonatomic, retain) 	UIPopoverController* popoverController;
 @end

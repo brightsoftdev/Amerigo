@@ -8,9 +8,11 @@
 
 #import "SearchViewController.h"
 #import "GridViewTestAppDelegate.h"
+#import "ArtistsTableViewController.h"
 
 @implementation SearchViewController
-@synthesize artistTextField;
+
+@synthesize artistTextField, popoverController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,15 +59,40 @@
 	return YES;
 }
 
-- (IBAction)onCancelPressed:(id)sender {
-}
-
-- (IBAction)onDonePressed:(id)sender {
+//starts the search operation
+- (IBAction)onDonePressed:(id)sender 
+{
     [self.artistTextField resignFirstResponder];
     GridViewTestAppDelegate* delegate = (GridViewTestAppDelegate*) [[UIApplication sharedApplication] delegate];
     [delegate performSearch:self.artistTextField.text];
 }
 
+//pressed when the list of artists should be shown
+- (IBAction)onListArtistsButtonPressed:(id)sender 
+{
+	//create the details view controller of the popover controller
+	//the artitsts list view
+	ArtistsTableViewController* content = [[ArtistsTableViewController alloc] initWithNibName:@"ArtistsTableView" bundle:nil];
+	
+	//create the popover controller
+	UIPopoverController* aPopover = [[UIPopoverController alloc] initWithContentViewController:content];	
+
+	// Store the popover in a custom property for later use.
+	self.popoverController = aPopover;
+	//set popovercontroller in details view
+	content.popoverController = aPopover;
+
+	//release controllers
+	[aPopover release];
+	[content release];
+	
+	//present popover controller left beside the button
+	CGRect frame = ((UIButton*) sender).frame;
+	[self.popoverController presentPopoverFromRect:frame 
+											inView:self.view 
+								   permittedArrowDirections:UIPopoverArrowDirectionLeft 
+										  animated:YES];
+}
 
 -(BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [self.artistTextField resignFirstResponder];

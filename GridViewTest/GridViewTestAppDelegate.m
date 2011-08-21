@@ -84,7 +84,7 @@ UIViewController* imagesDummyCtl;
     
 #if (TARGET_IPHONE_SIMULATOR)
     //on simulator just search for static artist
-    [self performSearch:@"Nirvana"];
+    //[self performSearch:@"Nirvana"];
 #endif
     
     return YES;

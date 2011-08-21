@@ -80,7 +80,6 @@
 		0572884313D19BB0006457CE /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572883613D19BAF006457CE /* SBJsonUTF8Stream.m */; };
 		0572884413D19BB0006457CE /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572883813D19BAF006457CE /* SBJsonWriter.m */; };
 		0572884813D1A9E0006457CE /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572884613D1A9E0006457CE /* SearchViewController.m */; };
-		0572884913D1A9E0006457CE /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0572884713D1A9E0006457CE /* SearchView.xib */; };
 		0572884C13D1C821006457CE /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572884B13D1C821006457CE /* Artist.m */; };
 		05792DE413F2F9400007F3D7 /* arrowleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 05792DE213F2F9400007F3D7 /* arrowleft.png */; };
 		05792DE513F2F9400007F3D7 /* arrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = 05792DE313F2F9400007F3D7 /* arrowright.png */; };
@@ -118,9 +117,15 @@
 		05C85E9113D0C42500CF31AD /* AQGridSelectionGrayBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C85E8213D0C42500CF31AD /* AQGridSelectionGrayBlue.png */; };
 		05C85E9213D0C42500CF31AD /* AQGridSelectionGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C85E8313D0C42500CF31AD /* AQGridSelectionGreen.png */; };
 		05C85E9313D0C42500CF31AD /* AQGridSelectionRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C85E8413D0C42500CF31AD /* AQGridSelectionRed.png */; };
+		4C773A2314010611003219E1 /* list-button-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C773A2114010611003219E1 /* list-button-highlight.png */; };
+		4C773A2414010611003219E1 /* list-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C773A2214010611003219E1 /* list-button.png */; };
+		4C773A5514010E9F003219E1 /* ArtistsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C773A5314010E9F003219E1 /* ArtistsTableViewController.m */; };
+		4C773A5614010E9F003219E1 /* ArtistsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C773A5414010E9F003219E1 /* ArtistsTableView.xib */; };
+		4C773AEA140123FF003219E1 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C773AE9140123FF003219E1 /* iToast.m */; };
+		4C773B6214014367003219E1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C773B6114014367003219E1 /* Localizable.strings */; };
+		4C773B6B1401452F003219E1 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C773B6A1401452F003219E1 /* SearchView.xib */; };
 		4CAE47F513DAEF9B00ED43C9 /* noimage_600x600.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAE47F413DAEF9B00ED43C9 /* noimage_600x600.png */; };
 		4CAE483113DAF6B800ED43C9 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE482A13DAF6B800ED43C9 /* AudioStreamer.m */; };
-		4CAE483213DAF6B800ED43C9 /* iPhoneStreamingPlayerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE482C13DAF6B800ED43C9 /* iPhoneStreamingPlayerAppDelegate.m */; };
 		4CAE483313DAF6B800ED43C9 /* iPhoneStreamingPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE482E13DAF6B800ED43C9 /* iPhoneStreamingPlayerViewController.m */; };
 		4CAE489213DAF7B300ED43C9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAE489113DAF7B300ED43C9 /* AudioToolbox.framework */; };
 		4CAE489613DAF7BD00ED43C9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAE489513DAF7BD00ED43C9 /* CFNetwork.framework */; };
@@ -279,7 +284,6 @@
 		0572883813D19BAF006457CE /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		0572884513D1A9DF006457CE /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		0572884613D1A9E0006457CE /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		0572884713D1A9E0006457CE /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		0572884A13D1C821006457CE /* Artist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artist.h; sourceTree = "<group>"; };
 		0572884B13D1C821006457CE /* Artist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Artist.m; sourceTree = "<group>"; };
 		05792DE213F2F9400007F3D7 /* arrowleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowleft.png; sourceTree = "<group>"; };
@@ -338,11 +342,20 @@
 		05C85E8213D0C42500CF31AD /* AQGridSelectionGrayBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelectionGrayBlue.png; sourceTree = "<group>"; };
 		05C85E8313D0C42500CF31AD /* AQGridSelectionGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelectionGreen.png; sourceTree = "<group>"; };
 		05C85E8413D0C42500CF31AD /* AQGridSelectionRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelectionRed.png; sourceTree = "<group>"; };
+		4C773A2114010611003219E1 /* list-button-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-button-highlight.png"; sourceTree = "<group>"; };
+		4C773A2214010611003219E1 /* list-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-button.png"; sourceTree = "<group>"; };
+		4C773A5214010E9F003219E1 /* ArtistsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistsTableViewController.h; sourceTree = "<group>"; };
+		4C773A5314010E9F003219E1 /* ArtistsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistsTableViewController.m; sourceTree = "<group>"; };
+		4C773A5414010E9F003219E1 /* ArtistsTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistsTableView.xib; sourceTree = "<group>"; };
+		4C773AE8140123FF003219E1 /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
+		4C773AE9140123FF003219E1 /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
+		4C773B6314014375003219E1 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4C773B66140144B5003219E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4C773B6D14014556003219E1 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/SearchView.xib; sourceTree = "<group>"; };
+		4C773B76140145FF003219E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SearchView.xib; sourceTree = "<group>"; };
 		4CAE47F413DAEF9B00ED43C9 /* noimage_600x600.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noimage_600x600.png; sourceTree = "<group>"; };
 		4CAE482913DAF6B800ED43C9 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		4CAE482A13DAF6B800ED43C9 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
-		4CAE482B13DAF6B800ED43C9 /* iPhoneStreamingPlayerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneStreamingPlayerAppDelegate.h; sourceTree = "<group>"; };
-		4CAE482C13DAF6B800ED43C9 /* iPhoneStreamingPlayerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneStreamingPlayerAppDelegate.m; sourceTree = "<group>"; };
 		4CAE482D13DAF6B800ED43C9 /* iPhoneStreamingPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneStreamingPlayerViewController.h; sourceTree = "<group>"; };
 		4CAE482E13DAF6B800ED43C9 /* iPhoneStreamingPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneStreamingPlayerViewController.m; sourceTree = "<group>"; };
 		4CAE489113DAF7B300ED43C9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -400,7 +413,7 @@
 				057287DA13D18A95006457CE /* GridView.xib */,
 				0572884513D1A9DF006457CE /* SearchViewController.h */,
 				0572884613D1A9E0006457CE /* SearchViewController.m */,
-				0572884713D1A9E0006457CE /* SearchView.xib */,
+				4C773B6A1401452F003219E1 /* SearchView.xib */,
 				0525EB4413D48B4800E9EBC7 /* ArtistInfoViewController.h */,
 				0525EB4513D48B4800E9EBC7 /* ArtistInfoViewController.m */,
 				0525EB4613D48B4800E9EBC7 /* ArtistInfoView.xib */,
@@ -415,6 +428,9 @@
 				0549D15D13E08FC800CF3D6A /* ArtistEventsViewController.h */,
 				0549D15E13E08FC800CF3D6A /* ArtistEventsViewController.m */,
 				0549D15F13E08FC800CF3D6A /* ArtistEventsView.xib */,
+				4C773A5214010E9F003219E1 /* ArtistsTableViewController.h */,
+				4C773A5314010E9F003219E1 /* ArtistsTableViewController.m */,
+				4C773A5414010E9F003219E1 /* ArtistsTableView.xib */,
 			);
 			name = DetailViews;
 			sourceTree = "<group>";
@@ -614,6 +630,8 @@
 		0572885613D1DEF0006457CE /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				4C773A2114010611003219E1 /* list-button-highlight.png */,
+				4C773A2214010611003219E1 /* list-button.png */,
 				05792DF013F2FB940007F3D7 /* move.png */,
 				05792DEE13F2FB770007F3D7 /* pencilangled.png */,
 				05792DEC13F2FB270007F3D7 /* clock.png */,
@@ -651,6 +669,7 @@
 		05C85E0413D0BFAA00CF31AD = {
 			isa = PBXGroup;
 			children = (
+				4C773AE6140123F4003219E1 /* iToast */,
 				055D7C5D13F44FB200BAF881 /* CHDataStructures */,
 				050A588213DDC08E0067BF91 /* MGSplitViewController */,
 				4CAE482713DAF6B800ED43C9 /* AudioStreamer */,
@@ -710,6 +729,7 @@
 				05C85E1C13D0BFAA00CF31AD /* InfoPlist.strings */,
 				05C85E1F13D0BFAA00CF31AD /* Amerigo-Prefix.pch */,
 				05C85E2013D0BFAA00CF31AD /* main.m */,
+				4C773B6114014367003219E1 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -767,6 +787,15 @@
 			path = AQGridView/Resources;
 			sourceTree = "<group>";
 		};
+		4C773AE6140123F4003219E1 /* iToast */ = {
+			isa = PBXGroup;
+			children = (
+				4C773AE8140123FF003219E1 /* iToast.h */,
+				4C773AE9140123FF003219E1 /* iToast.m */,
+			);
+			name = iToast;
+			sourceTree = "<group>";
+		};
 		4CAE482713DAF6B800ED43C9 /* AudioStreamer */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,8 +809,6 @@
 			children = (
 				4CAE482913DAF6B800ED43C9 /* AudioStreamer.h */,
 				4CAE482A13DAF6B800ED43C9 /* AudioStreamer.m */,
-				4CAE482B13DAF6B800ED43C9 /* iPhoneStreamingPlayerAppDelegate.h */,
-				4CAE482C13DAF6B800ED43C9 /* iPhoneStreamingPlayerAppDelegate.m */,
 				4CAE482D13DAF6B800ED43C9 /* iPhoneStreamingPlayerViewController.h */,
 				4CAE482E13DAF6B800ED43C9 /* iPhoneStreamingPlayerViewController.m */,
 			);
@@ -819,6 +846,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = 05C85E0413D0BFAA00CF31AD;
 			productRefGroup = 05C85E1013D0BFAA00CF31AD /* Products */;
@@ -843,7 +871,7 @@
 				05C85E9213D0C42500CF31AD /* AQGridSelectionGreen.png in Resources */,
 				05C85E9313D0C42500CF31AD /* AQGridSelectionRed.png in Resources */,
 				057287DB13D18A95006457CE /* GridView.xib in Resources */,
-				0572884913D1A9E0006457CE /* SearchView.xib in Resources */,
+				4C773B6B1401452F003219E1 /* SearchView.xib in Resources */,
 				05A0894813D230D800753E64 /* noimage.png in Resources */,
 				05A0894A13D2325000753E64 /* gray_light.jpg in Resources */,
 				053AF2E313D2E00400468581 /* dark_bg.png in Resources */,
@@ -878,6 +906,10 @@
 				05792DED13F2FB270007F3D7 /* clock.png in Resources */,
 				05792DEF13F2FB770007F3D7 /* pencilangled.png in Resources */,
 				05792DF113F2FB940007F3D7 /* move.png in Resources */,
+				4C773A2314010611003219E1 /* list-button-highlight.png in Resources */,
+				4C773A2414010611003219E1 /* list-button.png in Resources */,
+				4C773A5614010E9F003219E1 /* ArtistsTableView.xib in Resources */,
+				4C773B6214014367003219E1 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -928,7 +960,6 @@
 				05B6A30E13D9D703006FC4A2 /* BasicPreviewItem.m in Sources */,
 				05B6A31213D9DEFD006FC4A2 /* ImagePreviewController.m in Sources */,
 				4CAE483113DAF6B800ED43C9 /* AudioStreamer.m in Sources */,
-				4CAE483213DAF6B800ED43C9 /* iPhoneStreamingPlayerAppDelegate.m in Sources */,
 				4CAE483313DAF6B800ED43C9 /* iPhoneStreamingPlayerViewController.m in Sources */,
 				4CAE491213DB058000ED43C9 /* ArtistSong.m in Sources */,
 				4CAE4A7613DB838C00ED43C9 /* Utilities.m in Sources */,
@@ -965,6 +996,8 @@
 				055D7CB313F44FB300BAF881 /* CHTreap.m in Sources */,
 				055D7CB413F44FB300BAF881 /* CHUnbalancedTree.m in Sources */,
 				055D7CB513F44FB300BAF881 /* Util.m in Sources */,
+				4C773A5514010E9F003219E1 /* ArtistsTableViewController.m in Sources */,
+				4C773AEA140123FF003219E1 /* iToast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,6 +1018,24 @@
 				05C85E3513D0BFB600CF31AD /* en */,
 			);
 			name = "MainWindow-iPad.xib";
+			sourceTree = "<group>";
+		};
+		4C773B6114014367003219E1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C773B6314014375003219E1 /* de */,
+				4C773B66140144B5003219E1 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		4C773B6A1401452F003219E1 /* SearchView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C773B6D14014556003219E1 /* de */,
+				4C773B76140145FF003219E1 /* en */,
+			);
+			name = SearchView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
