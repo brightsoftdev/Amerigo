@@ -62,11 +62,6 @@
 
 
 - (void) updateArtist:(Artist*) artist {
-	//stop playing if needed
-	if (streamer) {
-		[self stopPlaying];
-	}
-	
     if (artist == nil) {
         [self changeImage:[UIImage imageNamed:@"noimage.png"]];
         self.titleLabel.text = @"";
@@ -114,13 +109,34 @@
 }
 
 -(void) songsForArtistLoaded:(Artist*) artist {
-	self.songs = artist.songs;
-	songIdx = 0;
-	self.songTitleLabel.text = @"";	
-	if (self.songs && [self.songs count] > 0) {
-		ArtistSong* s = [self.songs objectAtIndex:0];
-		self.songTitleLabel.text = s.title;
-	}
+    //if currently player
+    if (streamer && [streamer isPlaying]) {
+        //get current song
+        ArtistSong* currentSong = [self.songs objectAtIndex:songIdx];
+
+        //song = currentSong + loadedSongs
+        self.songs = [[NSMutableArray alloc] init];
+        [self.songs addObject:currentSong];        
+        for (ArtistSong* s in artist.songs) {
+            [self.songs addObject:s];
+        }
+        //index is 0
+        songIdx = 0;
+    }
+    //if not playing
+    else {
+        //use loaded songs
+        self.songs = [NSMutableArray arrayWithArray:artist.songs];
+        //index is 0
+        songIdx = 0;
+        //reset title string to first title
+        self.songTitleLabel.text = @"";	
+        if (self.songs && [self.songs count] > 0) {
+            ArtistSong* s = [self.songs objectAtIndex:0];
+            self.songTitleLabel.text = s.title;
+        }        
+    }
+    
 }
 
 //
@@ -295,19 +311,39 @@
 //
 - (void)playbackStateChanged:(NSNotification *)aNotification
 {
-	if ([streamer isWaiting])
+    //waiting: 0, playing: 0, idle: 1, paused: 0
+    BOOL waiting = [streamer isWaiting];
+    BOOL playing = [streamer isPlaying];    
+    BOOL idle = [streamer isIdle];
+    BOOL paused = [streamer isPaused];
+    //NSLog(@"waiting: %i, playing: %i, idle: %i, paused: %i", waiting, playing, idle, paused);
+    //NSLog(@"Songs: %i", [songs count]);
+	if (waiting)
 	{
 		[self setButtonImage:[UIImage imageNamed:@"refresh.png"]];
 	}
-	else if ([streamer isPlaying])
+	else if (playing)
 	{
 		[self setButtonImage:[UIImage imageNamed:@"pause.png"]];
 	}
-	else if ([streamer isIdle])
+	else if (idle)
 	{
+        //stop
 		[self destroyStreamer];
 		[self setButtonImage:[UIImage imageNamed:@"play.png"]];
 	}
+    
+    //playing stopped at the end of the song, so play the next one
+    if (!waiting && !playing && idle && !paused)
+    {
+        //if not reaches the end of playlist
+        if (songs && songIdx+1 < [songs count]) {
+            //goto next
+            [self nextPressed:self];
+            //play it
+            [self playPressed:self];
+        }
+    }
 	
 }
 
@@ -331,10 +367,71 @@
 }
 
 
+
+//invoked when tapped on song label of player widget
+- (void) tappedOnSongTitleLabel:(id) sender
+{
+    //Display the players song list
+    PlayerSongListViewController* lstCtl = [[PlayerSongListViewController alloc] initWithNibName:@"PlayerSongListViewController" bundle:nil];
+    lstCtl.songs = self.songs;
+    lstCtl.title = self.titleLabel.text;
+    
+    //TODO display list in popover controller
+    if (songListPopover) {
+        [songListPopover release];
+    }
+    songListPopover = [[UIPopoverController alloc] initWithContentViewController:lstCtl];
+    [songListPopover presentPopoverFromRect:self.songTitleLabel.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:TRUE];
+    
+    [lstCtl release];
+}
+
+- (void) songSelected:(NSNotification*)notification
+{
+    if (songListPopover) {
+        //hide and release popover controller
+        [songListPopover dismissPopoverAnimated:true];
+        [songListPopover release];
+        songListPopover = nil;
+    }
+    
+    if (streamer && [streamer isPlaying]) {
+        //stop playing if currently playing
+        [self playPressed:self];
+    }
+    
+    //play the selected song
+    ArtistSong* sel = [notification object];
+    
+    //find selected song in song list
+    int idx = 0;
+    for (ArtistSong* s in self.songs) {
+        if (s.url == sel.url) {
+            if (songIdx == idx) {
+                break;
+            }
+            songIdx = idx;
+            //and play it
+            [self playPressed:self];
+            //update label
+            self.songTitleLabel.text = sel.title;
+            break;
+        }
+        idx++;
+    }
+}
+
+- (IBAction)onBackButtonPressed:(id)sender {
+}
+
+
 #pragma mark -
 
 - (void)dealloc
 {
+    if (songListPopover) {
+        [songListPopover release];
+    }
     //remove oberver
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 	[self destroyStreamer];
@@ -367,9 +464,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Register observer to be notified when artist is loaded
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(artistLoaded:) 
                                                  name:@"ArtistLoaded" object:nil];   
+   
+    // Register observer to be notified when song selection changed in song list popover
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songSelected:) 
+                                                 name:@"songSelected" object:nil];   
     
     CGRect f = self.view.frame;
     CGRectMake(f.origin.x, f.origin.y, f.size.width, 50);
@@ -378,7 +480,12 @@
     GridViewTestAppDelegate* del = (GridViewTestAppDelegate*) [[UIApplication sharedApplication] delegate];
     [del.splitViewController setSplitPosition:50];
     
+    //add tap recognizer for song title label
+    self.songTitleLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedOnSongTitleLabel:)] autorelease];
+    [self.songTitleLabel addGestureRecognizer:tapGesture];
 }
+
 
 - (void)viewDidUnload
 {	
@@ -397,10 +504,5 @@
     // Return YES for supported orientations
 	return YES;
 }
-
-- (IBAction)onBackButtonPressed:(id)sender {
-    NSLog(@"goBack");
-}
-
 
 @end

@@ -13,6 +13,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <CFNetwork/CFNetwork.h>
 #import "ArtistDBConnector.h"
+#import "PlayerSongListViewController.h"
 
 @interface TopBarViewController : UIViewController {
     
@@ -24,10 +25,11 @@
 	
 	AudioStreamer *streamer;
 	NSTimer *progressUpdateTimer;
-	NSArray* songs;
+	NSMutableArray* songs;
     UISegmentedControl *segmentedControl;
     UISegmentedControl *prevNextSegCtrl;
 	int songIdx;
+    UIPopoverController* songListPopover;
 }
 
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
@@ -37,7 +39,7 @@
 
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
 
-@property (nonatomic, retain) NSArray* songs;
+@property (nonatomic, retain) NSMutableArray* songs;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *segmentedControl;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *prevNextSegCtrl;
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05097DEB140433E400335453 /* PlayerSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05097DE9140433E400335453 /* PlayerSongListViewController.m */; };
+		05097DEC140433E400335453 /* PlayerSongListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05097DEA140433E400335453 /* PlayerSongListViewController.xib */; };
 		050A1A8B13D0C51D00287A36 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050A1A8A13D0C51D00287A36 /* QuartzCore.framework */; };
 		050A589213DDC1380067BF91 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 050A588D13DDC1380067BF91 /* MGSplitCornersView.m */; };
 		050A589313DDC1380067BF91 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 050A588F13DDC1380067BF91 /* MGSplitDividerView.m */; };
@@ -142,6 +144,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05097DE8140433E400335453 /* PlayerSongListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSongListViewController.h; sourceTree = "<group>"; };
+		05097DE9140433E400335453 /* PlayerSongListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSongListViewController.m; sourceTree = "<group>"; };
+		05097DEA140433E400335453 /* PlayerSongListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerSongListViewController.xib; sourceTree = "<group>"; };
 		050A1A8A13D0C51D00287A36 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		050A588C13DDC1380067BF91 /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
 		050A588D13DDC1380067BF91 /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
@@ -442,6 +447,9 @@
 				053AF2E513D2E02E00468581 /* TopBarViewController.h */,
 				053AF2E613D2E02E00468581 /* TopBarViewController.m */,
 				053AF2E713D2E02E00468581 /* TopBarView.xib */,
+				05097DE8140433E400335453 /* PlayerSongListViewController.h */,
+				05097DE9140433E400335453 /* PlayerSongListViewController.m */,
+				05097DEA140433E400335453 /* PlayerSongListViewController.xib */,
 			);
 			name = MainView;
 			sourceTree = "<group>";
@@ -910,6 +918,7 @@
 				4C773A2414010611003219E1 /* list-button.png in Resources */,
 				4C773A5614010E9F003219E1 /* ArtistsTableView.xib in Resources */,
 				4C773B6214014367003219E1 /* Localizable.strings in Resources */,
+				05097DEC140433E400335453 /* PlayerSongListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -998,6 +1007,7 @@
 				055D7CB513F44FB300BAF881 /* Util.m in Sources */,
 				4C773A5514010E9F003219E1 /* ArtistsTableViewController.m in Sources */,
 				4C773AEA140123FF003219E1 /* iToast.m in Sources */,
+				05097DEB140433E400335453 /* PlayerSongListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
