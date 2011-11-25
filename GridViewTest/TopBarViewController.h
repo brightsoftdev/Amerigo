@@ -13,8 +13,11 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <CFNetwork/CFNetwork.h>
 #import "ArtistDBConnector.h"
+#import "ArtistsTableViewController.h"
+#import "PlayerSongListViewController.h"
+#import "AppInfoView.h"
 
-@interface TopBarViewController : UIViewController {
+@interface TopBarViewController : UIViewController <UITextFieldDelegate> {
     
     UIImageView *imageView;
     UILabel *titleLabel;
@@ -28,6 +31,9 @@
     UISegmentedControl *segmentedControl;
     UISegmentedControl *prevNextSegCtrl;
 	int songIdx;
+	UIPopoverController* popoverController;
+    UIPopoverController* songListPopover;
+    UIPopoverController* infoPopover;
 }
 
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
@@ -40,6 +46,8 @@
 @property (nonatomic, retain) NSArray* songs;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *segmentedControl;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *prevNextSegCtrl;
+@property (retain, nonatomic) IBOutlet UITextField *searchTextField;
+@property (nonatomic, retain) 	UIPopoverController* popoverController;
 
 - (IBAction)onBackButtonPressed:(id)sender;
 
@@ -62,5 +70,8 @@
 - (IBAction)segmentedControlValueChanged:(id)sender;
 - (IBAction)prevNextSegCtrlValueChanged:(id)sender;
 - (void) artistLoaded:(NSNotification*) notification;
+
+- (IBAction)onListArtistsButtonPressed:(id)sender;
+- (IBAction)infoButtonPressed:(id)sender;
 
 @end

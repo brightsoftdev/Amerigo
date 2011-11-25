@@ -1,7 +1,0 @@
-/Users/michael/devel/cpp/MusicBrowser/GridViewTest/ArtistInfoImageGridController.m: In function '-[ArtistInfoImageGridController gridView:willSelectItemAtIndex:]':
-/Users/michael/devel/cpp/MusicBrowser/GridViewTest/ArtistInfoImageGridController.m:83: warning: conflicting types for '-(void)gridView:(AQGridView *)gridView willSelectItemAtIndex:(NSUInteger)index'
-/Users/michael/devel/cpp/MusicBrowser/AQGridView/Classes/AQGridView.h:75: warning: previous declaration of '-(NSUInteger)gridView:(AQGridView *)gridView willSelectItemAtIndex:(NSUInteger)index'
-/Users/michael/devel/cpp/MusicBrowser/GridViewTest/ArtistInfoImageGridController.m:98: warning: 'ImagePreviewController' may not respond to '-showImage:'
-/Users/michael/devel/cpp/MusicBrowser/GridViewTest/ArtistInfoImageGridController.m:98: warning: (Messages without a matching method signature
-/Users/michael/devel/cpp/MusicBrowser/GridViewTest/ArtistInfoImageGridController.m:98: warning: will be assumed to return 'id' and accept
-/Users/michael/devel/cpp/MusicBrowser/GridViewTest/ArtistInfoImageGridController.m:98: warning: '...' as arguments.)

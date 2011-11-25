@@ -7,7 +7,6 @@
 //
 
 #import "GridViewTestAppDelegate.h"
-#import "SearchViewController.h"
 #import "ImageBackgroundViewController.h"
 #include "TargetConditionals.h"
 
@@ -17,14 +16,12 @@
 @synthesize window=_window;
 @synthesize navigationController=_navigationController;
 @synthesize splitViewController = _splitViewController;
-@synthesize searchViewController = _searchViewController;
 @synthesize artistInfoController, imagesController;
 @synthesize eventsController;
 
 
 @synthesize searchHistory;
 
-UIViewController* gridDummyCtl;
 UIViewController* imagesDummyCtl;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -36,15 +33,13 @@ UIViewController* imagesDummyCtl;
 
     //create the artist info controller
     self.artistInfoController = [[ArtistInfoViewController alloc] initWithNibName:@"ArtistInfoView" bundle:nil]; 
-
-    //create gridview controller (similar artist)
-    ImageBackgroundViewController* bgc = [[ImageBackgroundViewController alloc] initWithNibName:@"ImageBackgroundView" bundle:nil];    
-    gridDummyCtl = [[UIViewController alloc] init];
-    gridDummyCtl.view.frame = self.gridViewController.view.frame;
-    [gridDummyCtl.view addSubview:bgc.view];
-    [gridDummyCtl.view addSubview:self.gridViewController.gridView];    
-    [bgc release];
     
+    //create the grid view controller, the explore matrix view
+    self.gridViewController = [[GridViewController alloc] initWithNibName:@"GridView" bundle:nil];
+    
+    //the gridview is out default details view controller
+    self.splitViewController.detailViewController = self.gridViewController;
+
     //create the images controller
     self.imagesController = [[ArtistInfoImageGridController alloc] init];
     ImageBackgroundViewController* bgc2 = [[ImageBackgroundViewController alloc] initWithNibName:@"ImageBackgroundView" bundle:nil];    
@@ -84,7 +79,7 @@ UIViewController* imagesDummyCtl;
     
 #if (TARGET_IPHONE_SIMULATOR)
     //on simulator just search for static artist
-    //[self performSearch:@"Nirvana"];
+    [self performSearch:@"Nirvana"];
 #endif
     
     return YES;
@@ -97,12 +92,9 @@ UIViewController* imagesDummyCtl;
     //TODO hide keyboard if it's visible
     UIViewController* ctl = nil;
     switch (viewType) {
-        case kSearchView:
-            ctl = self.searchViewController;
-            [imagesController viewWillDisappear:true];
-            break;
         case kDiscoverView:           
-            ctl = gridDummyCtl;
+            ctl = self.gridViewController;
+            [ctl reloadGridView];
             [imagesController viewWillDisappear:true];
             break;
         case kInfoView:
@@ -218,14 +210,12 @@ UIViewController* imagesDummyCtl;
     [self.searchHistory release];
     [eventsController release];
     [libraryArtists release];
-    [gridDummyCtl release];
     [imagesDummyCtl release];
     [imagesController release];
     [_window release];
     [_navigationController release];
     [_gridViewController release];
     [_splitViewController release];
-    [_searchViewController release];
     [artistInfoController release];
     [super dealloc];
 }

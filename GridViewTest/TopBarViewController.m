@@ -18,7 +18,8 @@
 @synthesize songs;
 @synthesize segmentedControl;
 @synthesize prevNextSegCtrl;
-
+@synthesize searchTextField;
+@synthesize popoverController;
 
 
 //called when the artist for the top bar is loaded
@@ -27,6 +28,30 @@
     //change artist name in top bar
     Artist* artist = notification.object;
     [self updateArtist:artist];
+}
+
+
+//called when the app info button has been pressed
+//displays the info popover view
+- (IBAction)infoButtonPressed:(id)sender {
+    //release "old" popover if existing
+    if (infoPopover) {
+        [infoPopover release];
+        infoPopover = nil;
+    }
+    
+    //create info view
+    AppInfoView* info = [[AppInfoView alloc] initWithNibName:@"AppInfoView" bundle:nil];
+    
+    //get the info button rect
+    CGRect frame = ((UIButton*)sender).frame;
+    
+    //create the info popover controller
+    infoPopover = [[UIPopoverController alloc] initWithContentViewController:info];
+    //and display it
+    [infoPopover presentPopoverFromRect:frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:true];
+    //release info view controller
+    [info release];
 }
 
 //sets a new image in the top bar
@@ -295,21 +320,42 @@
 //
 - (void)playbackStateChanged:(NSNotification *)aNotification
 {
-	if ([streamer isWaiting])
+    //waiting: 0, playing: 0, idle: 1, paused: 0
+    BOOL waiting = [streamer isWaiting];
+    BOOL playing = [streamer isPlaying];    
+    BOOL idle = [streamer isIdle];
+    BOOL paused = [streamer isPaused];
+    //NSLog(@"waiting: %i, playing: %i, idle: %i, paused: %i", waiting, playing, idle, paused);
+    //NSLog(@"Songs: %i", [songs count]);
+	if (waiting)
 	{
 		[self setButtonImage:[UIImage imageNamed:@"refresh.png"]];
 	}
-	else if ([streamer isPlaying])
+	else if (playing)
 	{
 		[self setButtonImage:[UIImage imageNamed:@"pause.png"]];
 	}
-	else if ([streamer isIdle])
+	else if (idle)
 	{
+        //stop
 		[self destroyStreamer];
 		[self setButtonImage:[UIImage imageNamed:@"play.png"]];
 	}
+    
+    //playing stopped at the end of the song, so play the next one
+    if (!waiting && !playing && idle && !paused)
+    {
+        //if not reaches the end of playlist
+        if (songs && songIdx+1 < [songs count]) {
+            //goto next
+            [self nextPressed:self];
+            //play it
+            [self playPressed:self];
+        }
+    }
 	
 }
+
 
 //
 // updateProgress:
@@ -331,7 +377,89 @@
 }
 
 
-#pragma mark -
+
+//invoked when tapped on song label of player widget
+- (void) tappedOnSongTitleLabel:(id) sender
+{
+    //Display the players song list
+    PlayerSongListViewController* lstCtl = [[PlayerSongListViewController alloc] initWithNibName:@"PlayerSongListViewController" bundle:nil];
+    lstCtl.songs = self.songs;
+    lstCtl.title = self.titleLabel.text;
+    
+    //TODO display list in popover controller
+    if (songListPopover) {
+        [songListPopover release];
+    }
+    songListPopover = [[UIPopoverController alloc] initWithContentViewController:lstCtl];
+    [songListPopover presentPopoverFromRect:self.songTitleLabel.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:TRUE];
+    
+    [lstCtl release];
+}
+
+- (void) songSelected:(NSNotification*)notification
+{
+    if (songListPopover) {
+        //hide and release popover controller
+        [songListPopover dismissPopoverAnimated:true];
+        [songListPopover release];
+        songListPopover = nil;
+    }
+    
+    if (streamer && [streamer isPlaying]) {
+        //stop playing if currently playing
+        [self playPressed:self];
+    }
+    
+    //play the selected song
+    ArtistSong* sel = [notification object];
+    
+    //find selected song in song list
+    int idx = 0;
+    for (ArtistSong* s in self.songs) {
+        if (s.url == sel.url) {
+            if (songIdx == idx) {
+                break;
+            }
+            songIdx = idx;
+            //and play it
+            [self playPressed:self];
+            //update label
+            self.songTitleLabel.text = sel.title;
+            break;
+        }
+        idx++;
+    }
+}
+
+
+//called when the list of artists should be shown (list button pressed)
+- (IBAction)onListArtistsButtonPressed:(id)sender 
+{
+	//create the details view controller of the popover controller
+	//the artitsts list view
+	ArtistsTableViewController* content = [[ArtistsTableViewController alloc] initWithNibName:@"ArtistsTableView" bundle:nil];
+	
+	//create the popover controller
+	UIPopoverController* aPopover = [[UIPopoverController alloc] initWithContentViewController:content];	
+    
+	// Store the popover in a custom property for later use.
+	self.popoverController = aPopover;
+	//set popovercontroller in details view
+	content.popoverController = aPopover;
+    
+	//release controllers
+	[aPopover release];
+	[content release];
+	
+	//present popover controller left beside the button
+	CGRect frame = ((UIButton*) sender).frame;
+	[self.popoverController presentPopoverFromRect:frame 
+											inView:self.view 
+                          permittedArrowDirections:UIPopoverArrowDirectionLeft 
+										  animated:YES];
+}
+
+#pragma mark - memory management
 
 - (void)dealloc
 {
@@ -351,6 +479,8 @@
 	[songs dealloc];
     [segmentedControl release];
     [prevNextSegCtrl release];
+    [searchTextField release];
+    [popoverController release];
 	[super dealloc];
 }
 
@@ -362,14 +492,44 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+#pragma mark - UITextFieldDelegate methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    //get the entered text
+    NSString* searchTerm = textField.text;
+
+    //empty the text field
+    textField.text = @"";
+    
+    //close keyboard
+    [textField resignFirstResponder];
+    
+    //get the app delegate
+    GridViewTestAppDelegate* del = (GridViewTestAppDelegate*) [[UIApplication sharedApplication] delegate];
+
+    //and start searching
+    [del searchFor:searchTerm];
+    
+    return YES;
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //we need to set the search text field delegate to this, thats required to receive the hook when the search should start
+    self.searchTextField.delegate = self;
+    
     // Register observer to be notified when artist is loaded
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(artistLoaded:) 
                                                  name:@"ArtistLoaded" object:nil];   
+    
+    // Register observer to be notified when song selection changed in song list popover
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(songSelected:) 
+                                                 name:@"songSelected" object:nil];   
     
     CGRect f = self.view.frame;
     CGRectMake(f.origin.x, f.origin.y, f.size.width, 50);
@@ -378,6 +538,10 @@
     GridViewTestAppDelegate* del = (GridViewTestAppDelegate*) [[UIApplication sharedApplication] delegate];
     [del.splitViewController setSplitPosition:50];
     
+    //add tap recognizer for song title label
+    self.songTitleLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedOnSongTitleLabel:)] autorelease];
+    [self.songTitleLabel addGestureRecognizer:tapGesture];
 }
 
 - (void)viewDidUnload
@@ -387,6 +551,7 @@
     [self setTagsLabel:nil];
     [self setSegmentedControl:nil];
     [self setPrevNextSegCtrl:nil];
+    [self setSearchTextField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

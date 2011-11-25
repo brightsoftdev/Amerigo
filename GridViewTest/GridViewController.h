@@ -7,23 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AQGridViewController.h"
+#import "BDGridView.h"
 #import "Artist.h"
 #import "TopBarViewController.h"
 #import "Utilities.h"
 
-@interface GridViewController : AQGridViewController {
+@interface GridViewController : UIViewController <BDGridViewDelegate, BDGridViewDataSource> {
 
     NSMutableArray* artists;
-    NSMutableDictionary* images;
+    NSMutableDictionary* images;    
     NSMutableDictionary* cellViews;
     Artist* selectedArtist;
 }
 
 @property (nonatomic, retain) NSMutableArray* artists;
 @property (nonatomic, retain) Artist* selectedArtist;
+@property (retain, nonatomic) IBOutlet BDGridView *gridView;
 
 - (void) imageLoaded:(UIImage *)img forIdString:(NSString *)idString;
 - (void) artistsLoaded:(NSArray*) simArtists;
+
+- (UIImage*)imageWithBorderFromImage:(UIImage*)source;
+- (void) reloadGridView;
 
 @end

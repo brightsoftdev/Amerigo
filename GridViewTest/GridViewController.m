@@ -12,23 +12,26 @@
 #import "ArtistInfoViewController.h"
 #import "GridViewTestAppDelegate.h"
 #import "Utilities.h"
+#import "ImageCellView.h"
+#import "UIImage+scaleImage.h"
 
 @implementation GridViewController
+@synthesize gridView;
 
 @synthesize artists, selectedArtist;
 
 #define CELL_WIDTH 220
-#define CELL_HEIGHT 160
+#define CELL_HEIGHT 180
 #define BG_GRAY_VALUE 5
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.gridView.scrollEnabled = false;
-    self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.gridView.gridViewDelegate = self;
+    self.gridView.dataSource = self;
     
-    self.gridView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
-    
+    self.gridView.topContentPadding = 30.0f;
+   
     //init some data structures
     self.artists = [[NSMutableArray alloc] init];
     cellViews = [[NSMutableDictionary alloc] init];
@@ -106,10 +109,10 @@
 {
     //deselect objects
     if (self.artists) {
-        int count = [self.artists count];
-        for (int i=0; i<count; i++) {
-            [self.gridView deselectItemAtIndex:i animated:true];
-        }
+//        int count = [self.artists count];
+//        for (int i=0; i<count; i++) {
+//            [self.gridView deselectItemAtIndex:i animated:true];
+//        }
     }
     
     //remove all data
@@ -131,24 +134,142 @@
 - (void)imageLoaded:(UIImage *)img forIdString:(NSString *)idString 
 {
     if (img) {
+        //store the image in the images cache
         [images setObject:img forKey:idString];
 
-        NSNumber* idx = [cellViews valueForKey:idString];
-        if (idx) {
-            AQGridViewCell* cellView = [self.gridView cellForItemAtIndex:[idx intValue]];
-            if (cellView) {
-                UIImageView* imgView = (UIImageView*) [cellView.contentView viewWithTag:999];
-                if (imgView) {
-                    [Utilities setNewImageOfImageView:imgView newImage:img];
-                }  
-            }
+        //update the corresponding grid cell with the loaded image
+        ImageCellView* cell = [cellViews valueForKey:idString];
+        if (cell) {
+            UIImageView* imgView = cell.imageView;
+            UIImage* img2 = [self imageWithBorderFromImage:img];
+            [Utilities setNewImageOfImageView:imgView newImage:img2];
         }        
     }
 }
 
-#pragma mark - GridViewController methods
+- (void) reloadGridView
+{
+    [self.gridView reloadData];
+}
 
 
+#pragma mark - BDGridView methods
+
+- (BDGridCell *)gridView:(BDGridView *)gridView cellForIndex:(NSUInteger)index
+{
+    //get the artist for the cell index
+    Artist* artist = [self.artists objectAtIndex:index];
+    
+    //get the cell view, create a new one if we don't get a cached cell
+    ImageCellView* cell = (ImageCellView*) [self.gridView dequeueCell];
+    if (cell == nil) {
+        cell = [[ImageCellView alloc] initWithStyle:BDGridCellStyleDefault];                
+    }
+    
+    //reset to desected
+    cell.selected = false;
+    
+    //set cell inset
+    cell.contentInset = UIEdgeInsetsMake(5, 0, 0, 5);
+    //set the captions label shadow color
+    cell.label.shadowColor = [UIColor lightTextColor];
+    
+    //we need to get the cell for the artistID later to update the cell image when it's loaded
+    //so store the cell in the disctionary
+    if (artist) {
+        [cellViews setObject:cell forKey:artist.artistId];
+    }
+    
+    //get the cells image view
+    UIImageView* imgView = (UIImageView*) cell.imageView;
+    //set mode to aspect fit
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
+        
+    //try to set image for artist (if already loaded)
+    if ([images objectForKey:artist.artistId]) {
+        UIImage* img = [images objectForKey:artist.artistId];
+        img = [self imageWithBorderFromImage:img];
+        cell.image = img;
+    }
+    else {
+        //use dummy image if artist image is not loaded yet
+        cell.image = [UIImage imageNamed:@"noimage.png"];        
+    }
+    
+    //set the artist name as cell caption
+    cell.caption = artist.name;
+    
+    return cell;
+}
+
+- (UIImage*)imageWithBorderFromImage:(UIImage*)source
+{
+    //max size for image
+    CGSize kMaxImageViewSize = {.width = 170, .height = 170};
+    
+    //calc scaled size
+    CGSize imageSize = source.size;
+    CGFloat aspectRatio = imageSize.width / imageSize.height;
+    CGRect frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
+    if (kMaxImageViewSize.width / aspectRatio <= kMaxImageViewSize.height) {
+        frame.size.width = kMaxImageViewSize.width;
+        frame.size.height = frame.size.width / aspectRatio;
+    } else {
+        frame.size.height = kMaxImageViewSize.height;
+        frame.size.width = frame.size.height * aspectRatio;
+    }
+   
+    //get scaled image
+    UIImage* scaled = [source imageByScalingProportionallyToSize:CGSizeMake(frame.size.width, frame.size.height)];    
+    
+    //draw white rect border
+    
+    int bw = 10; //border width
+    CGSize size = [scaled size];
+    CGSize newSize = CGSizeMake(size.width + 2*bw, size.height + 2*bw);
+    
+    UIGraphicsBeginImageContext(newSize);
+    CGRect rect = CGRectMake(0, 0, newSize.width, newSize.height);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetRGBStrokeColor(context, 1.0, 1.0, 1.0, 1.0); 
+    CGContextStrokeRectWithWidth(context, rect, 2*bw);
+    
+    [scaled drawAtPoint:CGPointMake(bw, bw)];
+        
+    UIImage *testImg =  UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return testImg;
+}
+
+
+-(void)gridView:(BDGridView *)gridView didTapCell:(BDGridCell *)cell
+{
+    if (cell) {
+        cell.selected = true;
+        Artist* artist = [self.artists objectAtIndex:cell.index];
+        if (artist) {
+            GridViewTestAppDelegate* del = (GridViewTestAppDelegate*) [[UIApplication sharedApplication] delegate];
+            [del performSearch:artist.name];
+        }
+    }
+}
+
+-(NSUInteger)gridViewCountOfCells:(BDGridView *)gridView
+{
+    if (artists) {
+        return [artists count];
+    } else {
+        return 0;
+    }
+}
+
+-(CGSize)gridViewSizeOfCell:(BDGridView *)gridView
+{
+    return CGSizeMake(CELL_WIDTH, CELL_HEIGHT);
+}
+
+/*
 - (void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index 
 {
     Artist* artist = [self.artists objectAtIndex:index];
@@ -253,7 +374,7 @@
         return 0;
     }
 }
-
+*/
 
 - (void)dealloc {
     //remove obervers
@@ -263,7 +384,12 @@
     [images release];
     [artists release];
     [cellViews release];
+    [gridView release];
     [super dealloc];
 }
 
+- (void)viewDidUnload {
+    [self setGridView:nil];
+    [super viewDidUnload];
+}
 @end

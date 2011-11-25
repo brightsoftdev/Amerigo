@@ -28,7 +28,8 @@ NSString* const lang = @"de";
 
 #define SIM_ARTISTS_COUNT 12
 
-
+//the maximum count of images to load for an artist
+#define MAX_ARTIST_IMAGES 96
 
 
 //load the events for the artist
@@ -271,7 +272,7 @@ NSString* const lang = @"de";
         return nil;
     }
     
-    int limit = 48;
+    int limit = MAX_ARTIST_IMAGES;
     
     NSString* surl = [NSString stringWithFormat:
                       @"http://ws.audioscrobbler.com/2.0/?method=artist.getimages&mbid=%@&api_key=%@&limit=%i",

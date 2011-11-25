@@ -79,7 +79,6 @@
 		0572884213D19BB0006457CE /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572883413D19BAF006457CE /* SBJsonTokeniser.m */; };
 		0572884313D19BB0006457CE /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572883613D19BAF006457CE /* SBJsonUTF8Stream.m */; };
 		0572884413D19BB0006457CE /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572883813D19BAF006457CE /* SBJsonWriter.m */; };
-		0572884813D1A9E0006457CE /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572884613D1A9E0006457CE /* SearchViewController.m */; };
 		0572884C13D1C821006457CE /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572884B13D1C821006457CE /* Artist.m */; };
 		05792DE413F2F9400007F3D7 /* arrowleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 05792DE213F2F9400007F3D7 /* arrowleft.png */; };
 		05792DE513F2F9400007F3D7 /* arrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = 05792DE313F2F9400007F3D7 /* arrowright.png */; };
@@ -123,7 +122,13 @@
 		4C773A5614010E9F003219E1 /* ArtistsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C773A5414010E9F003219E1 /* ArtistsTableView.xib */; };
 		4C773AEA140123FF003219E1 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C773AE9140123FF003219E1 /* iToast.m */; };
 		4C773B6214014367003219E1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C773B6114014367003219E1 /* Localizable.strings */; };
-		4C773B6B1401452F003219E1 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C773B6A1401452F003219E1 /* SearchView.xib */; };
+		4C9BA1E5147949F800F63BD7 /* BDContrainPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9BA1DE147949F800F63BD7 /* BDContrainPanGestureRecognizer.m */; };
+		4C9BA1E6147949F800F63BD7 /* BDGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9BA1E0147949F800F63BD7 /* BDGridCell.m */; };
+		4C9BA1E7147949F800F63BD7 /* BDGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9BA1E2147949F800F63BD7 /* BDGridView.m */; };
+		4C9BA1E8147949F800F63BD7 /* IPColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9BA1E4147949F800F63BD7 /* IPColors.m */; };
+		4C9BA1EB14794F6900F63BD7 /* ImageCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9BA1EA14794F6900F63BD7 /* ImageCellView.m */; };
+		4C9BA1F0147C3FBB00F63BD7 /* cellBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9BA1EF147C3FBB00F63BD7 /* cellBg.png */; };
+		4C9BA1F6147D899300F63BD7 /* UIImage+scaleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9BA1F5147D899300F63BD7 /* UIImage+scaleImage.m */; };
 		4CAE47F513DAEF9B00ED43C9 /* noimage_600x600.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAE47F413DAEF9B00ED43C9 /* noimage_600x600.png */; };
 		4CAE483113DAF6B800ED43C9 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE482A13DAF6B800ED43C9 /* AudioStreamer.m */; };
 		4CAE483313DAF6B800ED43C9 /* iPhoneStreamingPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE482E13DAF6B800ED43C9 /* iPhoneStreamingPlayerViewController.m */; };
@@ -139,6 +144,11 @@
 		4CAE48ED13DAFEBE00ED43C9 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAE48EC13DAFEBE00ED43C9 /* refresh.png */; };
 		4CAE491213DB058000ED43C9 /* ArtistSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE491113DB058000ED43C9 /* ArtistSong.m */; };
 		4CAE4A7613DB838C00ED43C9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE4A7413DB838C00ED43C9 /* Utilities.m */; };
+		4CF656EC1480536F000CF5A0 /* AmerigoLogo_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CF656E51480536F000CF5A0 /* AmerigoLogo_72x72.png */; };
+		4CF656ED1480536F000CF5A0 /* AppInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF656E71480536F000CF5A0 /* AppInfoView.m */; };
+		4CF656EE1480536F000CF5A0 /* AppInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF656E81480536F000CF5A0 /* AppInfoView.xib */; };
+		4CF656EF1480536F000CF5A0 /* PlayerSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF656EA1480536F000CF5A0 /* PlayerSongListViewController.m */; };
+		4CF656F01480536F000CF5A0 /* PlayerSongListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF656EB1480536F000CF5A0 /* PlayerSongListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -282,8 +292,6 @@
 		0572883613D19BAF006457CE /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		0572883713D19BAF006457CE /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		0572883813D19BAF006457CE /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		0572884513D1A9DF006457CE /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		0572884613D1A9E0006457CE /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		0572884A13D1C821006457CE /* Artist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artist.h; sourceTree = "<group>"; };
 		0572884B13D1C821006457CE /* Artist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Artist.m; sourceTree = "<group>"; };
 		05792DE213F2F9400007F3D7 /* arrowleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowleft.png; sourceTree = "<group>"; };
@@ -351,8 +359,19 @@
 		4C773AE9140123FF003219E1 /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
 		4C773B6314014375003219E1 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C773B66140144B5003219E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4C773B6D14014556003219E1 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/SearchView.xib; sourceTree = "<group>"; };
-		4C773B76140145FF003219E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SearchView.xib; sourceTree = "<group>"; };
+		4C9BA1DD147949F800F63BD7 /* BDContrainPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDContrainPanGestureRecognizer.h; sourceTree = "<group>"; };
+		4C9BA1DE147949F800F63BD7 /* BDContrainPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDContrainPanGestureRecognizer.m; sourceTree = "<group>"; };
+		4C9BA1DF147949F800F63BD7 /* BDGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDGridCell.h; sourceTree = "<group>"; };
+		4C9BA1E0147949F800F63BD7 /* BDGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDGridCell.m; sourceTree = "<group>"; };
+		4C9BA1E1147949F800F63BD7 /* BDGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDGridView.h; sourceTree = "<group>"; };
+		4C9BA1E2147949F800F63BD7 /* BDGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDGridView.m; sourceTree = "<group>"; };
+		4C9BA1E3147949F800F63BD7 /* IPColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPColors.h; sourceTree = "<group>"; };
+		4C9BA1E4147949F800F63BD7 /* IPColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPColors.m; sourceTree = "<group>"; };
+		4C9BA1E914794F6900F63BD7 /* ImageCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCellView.h; sourceTree = "<group>"; };
+		4C9BA1EA14794F6900F63BD7 /* ImageCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCellView.m; sourceTree = "<group>"; };
+		4C9BA1EF147C3FBB00F63BD7 /* cellBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellBg.png; sourceTree = "<group>"; };
+		4C9BA1F4147D899300F63BD7 /* UIImage+scaleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+scaleImage.h"; sourceTree = "<group>"; };
+		4C9BA1F5147D899300F63BD7 /* UIImage+scaleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+scaleImage.m"; sourceTree = "<group>"; };
 		4CAE47F413DAEF9B00ED43C9 /* noimage_600x600.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noimage_600x600.png; sourceTree = "<group>"; };
 		4CAE482913DAF6B800ED43C9 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		4CAE482A13DAF6B800ED43C9 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
@@ -372,6 +391,13 @@
 		4CAE491113DB058000ED43C9 /* ArtistSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistSong.m; sourceTree = "<group>"; };
 		4CAE4A7413DB838C00ED43C9 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		4CAE4A7513DB838C00ED43C9 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		4CF656E51480536F000CF5A0 /* AmerigoLogo_72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AmerigoLogo_72x72.png; path = GridViewTest/AmerigoLogo_72x72.png; sourceTree = "<group>"; };
+		4CF656E61480536F000CF5A0 /* AppInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppInfoView.h; path = GridViewTest/AppInfoView.h; sourceTree = "<group>"; };
+		4CF656E71480536F000CF5A0 /* AppInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppInfoView.m; path = GridViewTest/AppInfoView.m; sourceTree = "<group>"; };
+		4CF656E81480536F000CF5A0 /* AppInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AppInfoView.xib; path = GridViewTest/AppInfoView.xib; sourceTree = "<group>"; };
+		4CF656E91480536F000CF5A0 /* PlayerSongListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerSongListViewController.h; path = GridViewTest/PlayerSongListViewController.h; sourceTree = "<group>"; };
+		4CF656EA1480536F000CF5A0 /* PlayerSongListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerSongListViewController.m; path = GridViewTest/PlayerSongListViewController.m; sourceTree = "<group>"; };
+		4CF656EB1480536F000CF5A0 /* PlayerSongListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerSongListViewController.xib; path = GridViewTest/PlayerSongListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,9 +437,6 @@
 				05C85E5E13D0C25D00CF31AD /* GridViewController.h */,
 				05C85E5F13D0C25D00CF31AD /* GridViewController.m */,
 				057287DA13D18A95006457CE /* GridView.xib */,
-				0572884513D1A9DF006457CE /* SearchViewController.h */,
-				0572884613D1A9E0006457CE /* SearchViewController.m */,
-				4C773B6A1401452F003219E1 /* SearchView.xib */,
 				0525EB4413D48B4800E9EBC7 /* ArtistInfoViewController.h */,
 				0525EB4513D48B4800E9EBC7 /* ArtistInfoViewController.m */,
 				0525EB4613D48B4800E9EBC7 /* ArtistInfoView.xib */,
@@ -431,6 +454,8 @@
 				4C773A5214010E9F003219E1 /* ArtistsTableViewController.h */,
 				4C773A5314010E9F003219E1 /* ArtistsTableViewController.m */,
 				4C773A5414010E9F003219E1 /* ArtistsTableView.xib */,
+				4C9BA1E914794F6900F63BD7 /* ImageCellView.h */,
+				4C9BA1EA14794F6900F63BD7 /* ImageCellView.m */,
 			);
 			name = DetailViews;
 			sourceTree = "<group>";
@@ -630,6 +655,7 @@
 		0572885613D1DEF0006457CE /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				4C9BA1EF147C3FBB00F63BD7 /* cellBg.png */,
 				4C773A2114010611003219E1 /* list-button-highlight.png */,
 				4C773A2214010611003219E1 /* list-button.png */,
 				05792DF013F2FB940007F3D7 /* move.png */,
@@ -669,6 +695,14 @@
 		05C85E0413D0BFAA00CF31AD = {
 			isa = PBXGroup;
 			children = (
+				4CF656E51480536F000CF5A0 /* AmerigoLogo_72x72.png */,
+				4CF656E61480536F000CF5A0 /* AppInfoView.h */,
+				4CF656E71480536F000CF5A0 /* AppInfoView.m */,
+				4CF656E81480536F000CF5A0 /* AppInfoView.xib */,
+				4CF656E91480536F000CF5A0 /* PlayerSongListViewController.h */,
+				4CF656EA1480536F000CF5A0 /* PlayerSongListViewController.m */,
+				4CF656EB1480536F000CF5A0 /* PlayerSongListViewController.xib */,
+				4C9BA1DC147949F800F63BD7 /* BDGridView */,
 				4C773AE6140123F4003219E1 /* iToast */,
 				055D7C5D13F44FB200BAF881 /* CHDataStructures */,
 				050A588213DDC08E0067BF91 /* MGSplitViewController */,
@@ -710,6 +744,8 @@
 			children = (
 				05C85E2213D0BFAA00CF31AD /* GridViewTestAppDelegate.h */,
 				05C85E2313D0BFAA00CF31AD /* GridViewTestAppDelegate.m */,
+				4C9BA1F4147D899300F63BD7 /* UIImage+scaleImage.h */,
+				4C9BA1F5147D899300F63BD7 /* UIImage+scaleImage.m */,
 				053C185713D73CF6009AED04 /* connector */,
 				053C185613D73CE2009AED04 /* model */,
 				05C85E1A13D0BFAA00CF31AD /* Supporting Files */,
@@ -796,6 +832,21 @@
 			name = iToast;
 			sourceTree = "<group>";
 		};
+		4C9BA1DC147949F800F63BD7 /* BDGridView */ = {
+			isa = PBXGroup;
+			children = (
+				4C9BA1DD147949F800F63BD7 /* BDContrainPanGestureRecognizer.h */,
+				4C9BA1DE147949F800F63BD7 /* BDContrainPanGestureRecognizer.m */,
+				4C9BA1DF147949F800F63BD7 /* BDGridCell.h */,
+				4C9BA1E0147949F800F63BD7 /* BDGridCell.m */,
+				4C9BA1E1147949F800F63BD7 /* BDGridView.h */,
+				4C9BA1E2147949F800F63BD7 /* BDGridView.m */,
+				4C9BA1E3147949F800F63BD7 /* IPColors.h */,
+				4C9BA1E4147949F800F63BD7 /* IPColors.m */,
+			);
+			path = BDGridView;
+			sourceTree = "<group>";
+		};
 		4CAE482713DAF6B800ED43C9 /* AudioStreamer */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,6 +891,9 @@
 /* Begin PBXProject section */
 		05C85E0613D0BFAA00CF31AD /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 05C85E0913D0BFAA00CF31AD /* Build configuration list for PBXProject "Amerigo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -871,7 +925,6 @@
 				05C85E9213D0C42500CF31AD /* AQGridSelectionGreen.png in Resources */,
 				05C85E9313D0C42500CF31AD /* AQGridSelectionRed.png in Resources */,
 				057287DB13D18A95006457CE /* GridView.xib in Resources */,
-				4C773B6B1401452F003219E1 /* SearchView.xib in Resources */,
 				05A0894813D230D800753E64 /* noimage.png in Resources */,
 				05A0894A13D2325000753E64 /* gray_light.jpg in Resources */,
 				053AF2E313D2E00400468581 /* dark_bg.png in Resources */,
@@ -910,6 +963,10 @@
 				4C773A2414010611003219E1 /* list-button.png in Resources */,
 				4C773A5614010E9F003219E1 /* ArtistsTableView.xib in Resources */,
 				4C773B6214014367003219E1 /* Localizable.strings in Resources */,
+				4C9BA1F0147C3FBB00F63BD7 /* cellBg.png in Resources */,
+				4CF656EC1480536F000CF5A0 /* AmerigoLogo_72x72.png in Resources */,
+				4CF656EE1480536F000CF5A0 /* AppInfoView.xib in Resources */,
+				4CF656F01480536F000CF5A0 /* PlayerSongListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -945,7 +1002,6 @@
 				0572884213D19BB0006457CE /* SBJsonTokeniser.m in Sources */,
 				0572884313D19BB0006457CE /* SBJsonUTF8Stream.m in Sources */,
 				0572884413D19BB0006457CE /* SBJsonWriter.m in Sources */,
-				0572884813D1A9E0006457CE /* SearchViewController.m in Sources */,
 				0572884C13D1C821006457CE /* Artist.m in Sources */,
 				053AF2E813D2E02E00468581 /* TopBarViewController.m in Sources */,
 				053AF2EF13D304A600468581 /* ArtistDBConnector.m in Sources */,
@@ -998,6 +1054,14 @@
 				055D7CB513F44FB300BAF881 /* Util.m in Sources */,
 				4C773A5514010E9F003219E1 /* ArtistsTableViewController.m in Sources */,
 				4C773AEA140123FF003219E1 /* iToast.m in Sources */,
+				4C9BA1E5147949F800F63BD7 /* BDContrainPanGestureRecognizer.m in Sources */,
+				4C9BA1E6147949F800F63BD7 /* BDGridCell.m in Sources */,
+				4C9BA1E7147949F800F63BD7 /* BDGridView.m in Sources */,
+				4C9BA1E8147949F800F63BD7 /* IPColors.m in Sources */,
+				4C9BA1EB14794F6900F63BD7 /* ImageCellView.m in Sources */,
+				4C9BA1F6147D899300F63BD7 /* UIImage+scaleImage.m in Sources */,
+				4CF656ED1480536F000CF5A0 /* AppInfoView.m in Sources */,
+				4CF656EF1480536F000CF5A0 /* PlayerSongListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,15 +1093,6 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		4C773B6A1401452F003219E1 /* SearchView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C773B6D14014556003219E1 /* de */,
-				4C773B76140145FF003219E1 /* en */,
-			);
-			name = SearchView.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1045,7 +1100,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1057,7 +1112,6 @@
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lxml2";
-				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
@@ -1067,7 +1121,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -1077,7 +1131,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-lxml2";
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1086,6 +1139,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1094,6 +1148,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GridViewTest/Amerigo-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "GridViewTest/Amerigo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
@@ -1101,6 +1156,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = Amerigo;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1110,6 +1166,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1117,6 +1174,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GridViewTest/Amerigo-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "GridViewTest/Amerigo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
@@ -1124,6 +1182,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = Amerigo;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
