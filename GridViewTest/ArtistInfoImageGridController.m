@@ -7,7 +7,10 @@
 //
 
 #import "ArtistInfoImageGridController.h"
-
+#import "GridViewTestAppDelegate.h"
+#import "MyPhoto.h"
+#import "MyPhotoSource.h"
+#import "EGOPhotoViewController.h"
 
 @implementation ArtistInfoImageGridController
 
@@ -34,6 +37,8 @@
     [super viewDidLoad];
 }
 
+
+#pragma mark -
 
 //loads and displays the images for the selected artist
 - (void) loadAndDisplayImagesForSelectedArtist
@@ -79,7 +84,6 @@
 - (void)dealloc {
     [selectedArtist release];
     [artistImages release];
-	[popCtl release];
     [images release];
     [super dealloc];
 }
@@ -164,48 +168,40 @@
 
 - (NSUInteger) gridView:(AQGridView *)gridView willSelectItemAtIndex:(NSUInteger)index
 {
+    //create photo objects for artistImage entries and add them to array
+    NSMutableArray* photos = [[NSMutableArray alloc] initWithCapacity:self.artistImages.count];
+    for (ArtistImage* aimg in self.artistImages) {
+        MyPhoto* p = [[MyPhoto alloc] initWithImageURL:[NSURL URLWithString:aimg.urlLarge] name:aimg.title];
+        [photos addObject:p];
+        [p release];
+    }
+    
+    //create photo source object
+    MyPhotoSource *source = [[MyPhotoSource alloc] initWithPhotos:photos];
 
-	//create popover controller if not done yet
-	if (popCtl != nil) {
-		[popCtl release];
-		popCtl = nil;
-	}
-	
-	ArtistImage* artistImage = [self.artistImages objectAtIndex:index];
-	
-	//compute the aspect ratio preserved image view size
-	CGSize size = artistImage.sizeMedium;
-	float aspectRatio = size.width / size.height;
-	float d = 600; //längste kantenlänge
-	float w = 0, h = 0;
-	if (size.width > size.height) {
-		w = d;
-		h = size.height / size.width * d;
-	} else {
-		h = d;
-		w = d * aspectRatio;
-	}
-		
-	//create content of popover (image view controller)
-	ImagePreviewController* viewCtl = [[ImagePreviewController alloc] initWithNibName:@"ImagePreview" bundle:nil];
-	viewCtl.view.frame = CGRectMake(0, 0, w, h);
-	viewCtl.contentSizeForViewInPopover = CGSizeMake(w, h);
-		
-	popCtl = [[UIPopoverController alloc] initWithContentViewController:viewCtl];
-		
-	[viewCtl release];	
-	
+    //create PhotoViewController
+    EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
 
-	//show image item
-	[viewCtl showImage:artistImage];
+    
+    //and a navigation controller
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:photoController];
+    //configure navigation controller
+    navController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    navController.modalPresentationStyle = UIModalPresentationFullScreen;
+    navController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    
+    //now present the navigation controller
+    GridViewTestAppDelegate* del = (GridViewTestAppDelegate*) [[UIApplication sharedApplication] delegate];
+    [del.splitViewController presentModalViewController:navController animated:true];
+    
+    [photoController moveToPhotoAtIndex:index animated:false];
 
-	//get rect for selected cell
-	CGRect cell = [self.gridView rectForItemAtIndex:index];
-	
-	//show popover controller
-    [popCtl presentPopoverFromRect:cell inView:self.view
-	   permittedArrowDirections:UIPopoverArrowDirectionAny animated:true];
-	
+    //release ressource
+    [navController release];
+    [photoController release];
+    [source release];
+    [photos release];
+
 	return index;
 }
 

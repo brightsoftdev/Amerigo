@@ -264,6 +264,7 @@
 						<string key="NSFrame">{{730, 105}, {18, 19}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUIContentMode">1</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -283,7 +284,7 @@
 					<object class="IBUITextField" id="708429202">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 99}, {170, 31}}</string>
+						<string key="NSFrame">{{12, 100}, {181, 31}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="23795461"/>
@@ -443,7 +444,7 @@
 					<object class="IBUIButton" id="23795461">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{186, 97}, {53, 37}}</string>
+						<string key="NSFrame">{{191, 90}, {50, 50.5}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="320208492"/>
@@ -459,11 +460,11 @@
 						<reference key="IBUINormalTitleShadowColor" ref="314597589"/>
 						<object class="NSCustomResource" key="IBUIHighlightedImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">list-button-highlight.png</string>
+							<string key="NSResourceName">list-button.png</string>
 						</object>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">list-button.png</string>
+							<string key="NSResourceName">list-button-highlight.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<int key="type">2</int>
@@ -661,8 +662,8 @@
 							<reference ref="454081487"/>
 							<reference ref="767565488"/>
 							<reference ref="708429202"/>
-							<reference ref="23795461"/>
 							<reference ref="320208492"/>
+							<reference ref="23795461"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -800,7 +801,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -983,10 +984,6 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1280" key="NS.object.0"/>
-		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
 			<integer value="3100" key="NS.object.0"/>
@@ -1017,8 +1014,8 @@
 				<string>{20, 20}</string>
 				<string>{1024, 100}</string>
 				<string>{52, 52}</string>
-				<string>{44, 32}</string>
-				<string>{44, 32}</string>
+				<string>{39, 32}</string>
+				<string>{39, 32}</string>
 				<string>{20, 20}</string>
 				<string>{20, 20}</string>
 				<string>{200, 180}</string>

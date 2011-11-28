@@ -11,13 +11,11 @@
 #import "Artist.h"
 #import "ArtistImage.h"
 #import "BasicPreviewItem.h"
-#import "ImagePreviewController.h"
 #import "Utilities.h"
 
 @interface ArtistInfoImageGridController : AQGridViewController {
     NSMutableArray* artistImages;
     NSMutableArray* images;
-	UIPopoverController* popCtl;
     Artist* selectedArtist;
     BOOL needsToLoadImages;
     BOOL isViewVisible;
